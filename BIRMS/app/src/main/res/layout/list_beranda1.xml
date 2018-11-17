@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_margin="5dp"
+        android:id="@+id/icon_berandabawah"
+        android:layout_width="70dp"
+        android:layout_height="70dp"/>
+    <TextView
+        android:id="@+id/judul_berandabawah"
+        android:layout_marginTop="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Word Bank Mengapresiasi BIRMS"
+        android:layout_toRightOf="@+id/icon_berandabawah"/>
+
+    <TextView
+        android:id="@+id/deskripsi_berandabawah"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="Word Bank Mengapresiasi BIRMS ASDASDADSSADASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASD"
+        android:textSize="10dp"
+        android:layout_below="@+id/judul_berandabawah"
+        android:layout_toRightOf="@id/icon_berandabawah"/>
+</RelativeLayout>

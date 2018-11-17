@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_margin="5dp"
+        android:id="@+id/icon_berita"
+        android:layout_width="70dp"
+        android:layout_height="70dp"/>
+    <TextView
+        android:id="@+id/judul_berita"
+        android:layout_marginTop="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Word Bank Mengapresiasi BIRMS"
+        android:layout_toRightOf="@+id/icon_berita"/>
+    <ImageView
+        android:id="@+id/image_berita"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/tanggal"
+        android:layout_toRightOf="@+id/icon_berita"
+        android:layout_below="@+id/judul_berita"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        android:text="09 September 2018"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/judul_berita"
+        android:layout_toRightOf="@id/image_berita"/>
+    <TextView
+        android:id="@+id/deskripsi_berita"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="Word Bank Mengapresiasi BIRMS ASDASDADSSADASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASDASD"
+        android:textSize="10dp"
+        android:layout_below="@+id/image_berita"
+        android:layout_toRightOf="@id/icon_berita"/>
+</RelativeLayout>

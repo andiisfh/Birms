@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">BIRMS</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="navberanda">Beranda</string>
+    <string name="navberita">Berita</string>
+    <string name="navcari">Cari</string>
+    <string name="navstatistik">Statistik</string>
+    <string name="navpengadaan">Pengadaan</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_intro">kepanjangan dari Bandung Integrated Resources Management System merupakan sebuah aplikasi Pengelolaan sumber daya pemerintahan yang terintegrasi dalam aktifitas birokrasi dari hulu hingga hilir dengan memanfaatkan Teknologi informasi dalam rangka menunjang tata kelola pemerintahan yang baik,efisien,efektif,transparan,akuntanbel,dan tertib</string>
+    <string name="news">news</string>
+    <string name="promo">promo</string>
+    <string name="show_token">show_token</string>
+    <string-array name="jenis_user">
+        <item>Prusahaan</item>
+        <item>Komunitas</item>
+    </string-array>
+</resources>

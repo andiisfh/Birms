@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "335405960143",
+    "firebase_url": "https://birms-431a3.firebaseio.com",
+    "project_id": "birms-431a3",
+    "storage_bucket": "birms-431a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335405960143:android:f9f209d12b470fe8",
+        "android_client_info": {
+          "package_name": "com.example.ferdy.birms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "335405960143-a5f5a2a9mbt2miuojj7jcmiva0a0c2lc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ferdy.birms",
+            "certificate_hash": "324609dc26cf95493a97ce851084f0428e56bb56"
+          }
+        },
+        {
+          "client_id": "335405960143-r9elsolppc6ecvm3sb1i1020e8rj5q95.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdXJbYi1-Ij1zn_e2ORv1pC-O43LsbsPk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "335405960143-r9elsolppc6ecvm3sb1i1020e8rj5q95.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

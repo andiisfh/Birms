@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_margin="15dp">
+
+    <ImageView
+
+        android:id="@+id/gambar_Project"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="7dp" />
+    <TextView
+        android:id="@+id/tv_judul_Project"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Word Bank Mengapresiasi BIRMS"
+        android:layout_toRightOf="@id/gambar_Project"
+        android:textColor="#F000"/>
+
+    <TextView
+        android:id="@+id/tv_deskripsi_project"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text= "SKPD - Rumah Sakit Umum Daerah Kota Bandung"
+        android:textSize="10dp"
+        android:layout_below="@+id/tv_judul_Project"
+        android:layout_toRightOf="@id/gambar_Project"/>
+
+    <ImageView
+        android:id="@+id/tanggal_img"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_below="@id/gambar_Project"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/tanggal"/>
+    <TextView
+        android:id="@+id/re"
+        android:layout_marginTop="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rencana Pengadaan : "
+        android:textSize="10dp"
+        android:layout_toRightOf="@id/tanggal_img"/>
+    <TextView
+        android:id="@+id/tv_tanggal_pengadaan"
+        android:layout_marginTop="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="01-04-2018"
+        android:textSize="10dp"
+        android:layout_toRightOf="@id/re"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/klarifikasi_img"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_below="@id/tanggal_img"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/list"/>
+    <TextView
+        android:id="@+id/rd"
+        android:layout_marginTop="90dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="klarifikasi : "
+        android:textSize="10dp"
+        android:layout_toRightOf="@id/klarifikasi_img"/>
+    <TextView
+        android:id="@+id/txt_pengadaan"
+        android:layout_marginTop="90dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pengadaan Barang"
+        android:textSize="10dp"
+        android:layout_toRightOf="@id/rd"
+        android:textStyle="bold"/>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/txt_pengadaan"
+        android:layout_alignStart="@+id/gambar_Project"
+        android:background="#03D5FE">
+
+        <TextView
+            android:id="@+id/pagu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="15dp"
+            android:text="Pagu : "
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/tvpagu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/pagu"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_toEndOf="@+id/pagu"
+            android:layout_toRightOf="@id/pagu"
+            android:text="Rp.3,1 M"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/txt_pengadaan"
+        android:layout_alignStart="@+id/gambar_Project"
+        android:layout_marginStart="115dp"
+        android:background="#fe2">
+
+        <TextView
+            android:id="@+id/pagu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="15dp"
+            android:text="Kontrak: "
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/tvkontrak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/pagu"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_toEndOf="@+id/pagu"
+            android:layout_toRightOf="@id/pagu"
+            android:text="Rp.3,1 M"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/txt_pengadaan"
+        android:layout_alignStart="@+id/gambar_Project"
+        android:layout_marginStart="224dp"
+        android:background="#f83">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Selesai "
+            android:textSize="10dp"
+            android:textColor="#FFF"/>
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
