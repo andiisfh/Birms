@@ -1,78 +1,96 @@
 package com.example.ferdy.birms;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ferdy.birms.adapter.DeksripsiCariAdapter;
-import com.example.ferdy.birms.api.JSONResponse;
-import com.example.ferdy.birms.api.RequestInterface;
-import com.example.ferdy.birms.model.ApiCari;
+import com.example.ferdy.birms.adapter.PengadaanAdapter;
+import com.example.ferdy.birms.api.Config;
+import com.example.ferdy.birms.model.ocid.ApiSingleOcid;
+import com.example.ferdy.birms.model.ocid.DataItem;
+import com.example.ferdy.birms.utils.Converter;
+import com.example.ferdy.birms.utils.EqualISpacingtemDecoration;
 
-import java.lang.reflect.Array;
+import java.net.ConnectException;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CariActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private ArrayList<ApiCari> cari;
-    private DeksripsiCariAdapter adapter;
+    private ProgressBar mPBLoading;
+    private RecyclerView mRVList;
+    private TextView mTVKeyword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cari);
-        //ini untuk membaca fragnen
+
+        mPBLoading = findViewById(R.id.pb_loading);
+        mRVList = findViewById(R.id.Rv_Cari_deskripsi);
+        mTVKeyword = findViewById(R.id.tv_kontrak_katakunci);
+
+        mRVList.setLayoutManager(new LinearLayoutManager(this));
+        mRVList.addItemDecoration(new EqualISpacingtemDecoration(Converter.dpToPx(this, 10), 1));
+        mRVList.setHasFixedSize(true);
+
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            if (bundle.getString("Some") != null) {
-                Toast.makeText(getApplicationContext(),
-                        "data:" + bundle.getString("some"),
-                        Toast.LENGTH_SHORT).show();
-            }
+            mTVKeyword.setText(" kontrak, berdasarkan Kata Kunci " +bundle.getString("ocid"));
+            getByOcid(bundle.getString("ocid"));
         }
-        view();
     }
 
-    //funsi
+    private void getByOcid(String ocid) {
+        mPBLoading.setVisibility(View.VISIBLE);
+        mRVList.setVisibility(View.GONE);
 
-    private void view(){
-        recyclerView = (RecyclerView) findViewById(R.id.Rv_Cari_deskripsi);
-        recyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
-        loadJson();
-    }
-    private void loadJson(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.learn2crack.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        RequestInterface request = retrofit.create(RequestInterface.class);
-        Call<JSONResponse> call = request.getJSON(); //get json dapet dari interface
-        call.enqueue(new Callback<JSONResponse>() {
+        Call<ApiSingleOcid> call = Config.getAPI().getByOcid("6WkBFKh6SS4ibE2O0Fm5UHGEQWv8hQbj", ocid);
+        call.enqueue(new Callback<ApiSingleOcid>() {
             @Override
-            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
-                //jika sukses
-                JSONResponse jsonResponse = response.body();
-                cari = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
-                adapter = new DeksripsiCariAdapter(cari);
-                recyclerView.setAdapter(adapter);
+            public void onResponse(Call<ApiSingleOcid> call, Response<ApiSingleOcid> response) {
+                mPBLoading.setVisibility(View.GONE);
+                mRVList.setVisibility(View.VISIBLE);
+
+                if (response.body().getStatus().equals("200")) {
+                    List<DataItem> dataItems = new ArrayList<>();
+                    dataItems.add(response.body().getData());
+
+                    PengadaanAdapter adapter = new PengadaanAdapter(CariActivity.this, dataItems);
+                    mRVList.setAdapter(adapter);
+                } else {
+                    Toast.makeText(CariActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
-            public void onFailure(Call<JSONResponse> call, Throwable t) {
-                Log.d( "Eorror",t.getMessage());
+            public void onFailure(Call<ApiSingleOcid> call, Throwable t) {
+                mPBLoading.setVisibility(View.GONE);
+
+                String message = "";
+                if (t instanceof SocketTimeoutException) {
+                    message = "request time out";
+                } else if (t instanceof ConnectException || t instanceof UnknownHostException || t instanceof TimeoutException || t instanceof SocketException) {
+                    message = "no internet connection";
+                } else {
+                    if (t.getMessage() != null)
+                        message = t.getMessage();
+                }
+
+                Toast.makeText(CariActivity.this, message, Toast.LENGTH_SHORT).show();
             }
         });
     }
